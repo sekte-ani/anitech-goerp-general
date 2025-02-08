@@ -13,6 +13,7 @@ func InitRoutes(app *gin.Engine){
 	
 	route.GET("/api/employee", controllers.IndexEmployee)
 	route.GET("/api/structure", controllers.IndexStructure)
+	route.GET("/api/product", controllers.IndexProduct)
 
 	route.POST("/visitor", func (ctx *gin.Context) { 
 		ctx.JSON(200, gin.H{
