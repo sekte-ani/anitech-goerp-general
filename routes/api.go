@@ -11,7 +11,12 @@ func InitRoutes(app *gin.Engine){
 	route := app
 	route.Static(appconfig.STATIC_ROUTE, appconfig.STATIC_DIR)
 	
-	// USER ROUTES
-	userRoute := route.Group("/api/employee")
-	userRoute.GET("/", controllers.IndexEmployee)
+	route.GET("/api/employee", controllers.IndexEmployee)
+	route.GET("/api/structure", controllers.IndexStructure)
+
+	route.POST("/visitor", func (ctx *gin.Context) { 
+		ctx.JSON(200, gin.H{
+			"message": "Visitor tracked",
+		})
+	})
 }
