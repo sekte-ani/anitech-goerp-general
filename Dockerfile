@@ -26,4 +26,4 @@ RUN go build -o main .
 EXPOSE 8009
 
 # Jalankan aplikasi
-CMD ["/app/main"]awdaw
+CMD ["/app/main"]
