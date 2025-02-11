@@ -2,7 +2,7 @@
 FROM golang:1.23-alpine
 
 # Menginstal git
-RUN apt-get update && apt-get install -y git
+RUN apk add --no-cache git
 
 # Set environment variable
 ENV GO111MODULE=on \
@@ -26,4 +26,4 @@ RUN go build -o main .
 EXPOSE 8009
 
 # Jalankan aplikasi
-CMD ["./main"]
+CMD ["/app/main"]
