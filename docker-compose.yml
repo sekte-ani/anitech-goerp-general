@@ -10,8 +10,21 @@ services:
     restart: unless-stopped
     ports:
       - "8009:8009"
-    depends_on:
-      - db
+    networks:
+      - anierp_general
+
+  db:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: gogeneral-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: anierp
+    ports:
+      - "3308:3306"
+    volumes:
+      - db_data:/var/lib/mysql
     networks:
       - anierp_general
 
