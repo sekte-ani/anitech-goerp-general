@@ -1,6 +1,9 @@
 # Gunakan base image Golang versi terbaru
 FROM golang:1.23-alpine
 
+# Menginstal git
+RUN apt-get update && apt-get install -y git
+
 # Set environment variable
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
