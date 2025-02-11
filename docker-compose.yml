@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: erpgolang-app
-    container_name: anierp-app
+    image: golang-app
+    container_name: gogeneral-app
     restart: unless-stopped
     ports:
       - "8009:8009"
@@ -18,7 +18,7 @@ services:
   db:
     image: mysql:5.7
     platform: linux/amd64
-    container_name: anierp-db
+    container_name: gogeneral-db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: secret
