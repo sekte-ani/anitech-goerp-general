@@ -1,5 +1,5 @@
 # Gunakan base image Golang versi terbaru
-FROM golang:1.21-alpine
+FROM golang:1.23-alpine
 
 # Set environment variable
 ENV GO111MODULE=on \
