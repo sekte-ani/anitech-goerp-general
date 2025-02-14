@@ -16,8 +16,8 @@ func IndexEmployee(ctx *gin.Context) {
 
 	if divisionName != "" {
 		var divisionID uint
-		err := database.DB.Table("divisions").Where("name = ?", divisionName).Pluck("id", &divisionID).Error
-		if err != nil {
+		err := database.DB.Table("divisions").Select("id").Where("name = ?", divisionName).Scan(&divisionID).Error
+		if err != nil || divisionID == 0 {
 			ctx.JSON(400, gin.H{"message": "Division Not Found"})
 			return
 		}
