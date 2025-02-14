@@ -21,7 +21,7 @@ func IndexEmployee(ctx *gin.Context) {
 			ctx.JSON(400, gin.H{"message": "Division Not Found"})
 			return
 		}
-		query = query.Where("id IN (?)", database.DB.Table("employee_division").Select("employee_id").Where("division_id = ?", divisionID))
+		query = query.Where("id IN (?)", database.DB.Table("user_division").Select("employee_id").Where("division_id = ?", divisionID))
 	}
 
 	err := query.Find(&employees).Error
